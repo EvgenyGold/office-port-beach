@@ -1,0 +1,206 @@
+<!doctype html>
+<title>Офис в Port Beach</title>
+<style>
+:root {
+  --bg: #f5f3ee;
+  --surface: #ffffff;
+  --fg: #1b2023;
+  --muted: #5a6367;
+  --line: #dcd9d1;
+  --accent: #1d6b59;
+  --accent-fg: #ffffff;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #101314;
+    --surface: #181c1e;
+    --fg: #eceeea;
+    --muted: #a2aba8;
+    --line: #2a3133;
+    --accent: #5cbba2;
+    --accent-fg: #0c1915;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #101314;
+  --surface: #181c1e;
+  --fg: #eceeea;
+  --muted: #a2aba8;
+  --line: #2a3133;
+  --accent: #5cbba2;
+  --accent-fg: #0c1915;
+  color-scheme: dark;
+}
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: "Inter", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  line-height: 1.55;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 40px;
+}
+main { max-width: 760px; margin: 0 auto; display: grid; gap: 28px; }
+img { display: block; width: 100%; height: auto; max-width: 100%; }
+h1 { font-size: clamp(1.6rem, 4.5vw, 2.3rem); line-height: 1.15; margin: 0; text-wrap: balance; }
+h2 { font-size: 1.25rem; margin: 0 0 12px; text-wrap: balance; }
+p { margin: 0; }
+.lead { color: var(--muted); font-size: 1.05rem; }
+.eyebrow { color: var(--accent); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600; }
+
+.hero { position: relative; margin: 0 calc(-1 * max(16px, env(safe-area-inset-left, 0px))); }
+.hero img { height: min(62vh, 480px); object-fit: cover; }
+.hero-body { display: grid; gap: 10px; margin-top: 20px; }
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+}
+.fact {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px;
+  min-width: 0;
+}
+.fact strong {
+  display: block;
+  font-size: 1.6rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--accent);
+  line-height: 1.1;
+}
+.fact span { color: var(--muted); font-size: 0.92rem; }
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+.gallery figure { margin: 0; min-width: 0; }
+.gallery img {
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 12px;
+  background: var(--line);
+}
+.gallery figure.wide { grid-column: 1 / -1; }
+.gallery figure.wide img { aspect-ratio: 16 / 9; }
+.gallery figcaption { color: var(--muted); font-size: 0.85rem; margin-top: 6px; }
+
+.features { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
+.features li { display: flex; gap: 10px; align-items: flex-start; }
+.features li::before {
+  content: "";
+  flex: none;
+  width: 8px; height: 8px;
+  margin-top: 0.55em;
+  border-radius: 50%;
+  background: var(--accent);
+}
+[dir="rtl"] .features li { flex-direction: row-reverse; }
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 22px;
+  min-width: 0;
+}
+.lang-head { color: var(--muted); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; }
+
+.cta-block {
+  background: var(--accent);
+  color: var(--accent-fg);
+  border-radius: 16px;
+  padding: 26px 22px;
+  display: grid;
+  gap: 14px;
+  text-align: center;
+}
+.cta-block p { opacity: 0.92; }
+.cta {
+  display: inline-block;
+  justify-self: center;
+  background: var(--accent-fg);
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 700;
+  padding: 14px 24px;
+  border-radius: 10px;
+}
+.cta:focus-visible { outline: 3px solid var(--accent-fg); outline-offset: 3px; }
+
+@media (prefers-reduced-motion: no-preference) {
+  main > * { animation: rise 0.45s ease both; }
+  main > *:nth-child(2) { animation-delay: 0.05s; }
+  main > *:nth-child(3) { animation-delay: 0.1s; }
+  main > *:nth-child(4) { animation-delay: 0.15s; }
+}
+@keyframes rise { from { opacity: 0.001; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+</style>
+
+<main>
+  <header class="hero">
+    <img src="images/photo-1.jpg" alt="Здание проекта Port Beach в Нетании с видом на море">
+    <div class="hero-body" style="padding-inline:max(16px, env(safe-area-inset-left, 0px))">
+      <p class="eyebrow">Аренда офиса · Нетания</p>
+      <h1>Офис в Port Beach, в самом центре Нетании</h1>
+      <p class="lead">Новое помещение для клиники или частной практики. Полная чистовая отделка, лифты и частное парковочное место.</p>
+    </div>
+  </header>
+
+  <section class="facts" aria-label="Основные параметры">
+    <div class="fact"><strong>67 м²</strong><span>площадь помещения</span></div>
+    <div class="fact"><strong>1-й</strong><span>этаж, удобный доступ</span></div>
+    <div class="fact"><strong>Есть</strong><span>лифт в здании</span></div>
+    <div class="fact"><strong>1</strong><span>частное парковочное место</span></div>
+  </section>
+
+  <section class="card" lang="ru">
+    <p class="lang-head">Почему это место</p>
+    <h2 style="margin-top:10px">Готово к работе</h2>
+    <ul class="features" style="margin-top:14px">
+      <li>Полная чистовая отделка: можно сразу начинать работу</li>
+      <li>Первый этаж, удобный подъезд для пациентов и клиентов</li>
+      <li>Частное парковочное место</li>
+      <li>Подходит для медицинских клиник, косметологических кабинетов, врачей, психологов и других специалистов</li>
+      <li>Престижный проект Port Beach на площади Ацмаут. В нескольких шагах от моря и набережной, рядом рестораны и кафе</li>
+    </ul>
+  </section>
+
+  <section aria-label="Фотографии помещения">
+    <p class="eyebrow" style="margin-bottom:12px">Фотографии</p>
+    <div class="gallery">
+      <figure class="wide"><img src="images/photo-2.jpg" alt="Просторная комната с деревянными шкафами и светлым полом" loading="lazy"></figure>
+      <figure><img src="images/photo-3.jpg" alt="Кухонная зона с мебелью и мойкой" loading="lazy"></figure>
+      <figure><img src="images/photo-4.jpg" alt="Помещение с паркетом в елочку и кухонным модулем" loading="lazy"></figure>
+      <figure><img src="images/photo-5.jpg" alt="Кабинет с панорамными окнами" loading="lazy"></figure>
+      <figure><img src="images/photo-6.jpg" alt="Узкое служебное помещение с раковиной" loading="lazy"></figure>
+      <figure><img src="images/photo-7.jpg" alt="Ресепшн в светлом холле" loading="lazy"></figure>
+      <figure class="wide"><img src="images/photo-8.jpg" alt="Просторное помещение с большим шкафом во всю стену" loading="lazy"></figure>
+    </div>
+  </section>
+
+  <section class="card" lang="he" dir="rtl">
+    <p class="lang-head" style="text-align:right">עברית</p>
+    <h2 style="margin-top:10px">משרד להשכרה ב-Port Beach, נתניה</h2>
+    <ul class="features" style="margin-top:14px">
+      <li>גמר מלא, ניתן להתחיל לעבוד מיד</li>
+      <li>קומה 1, גישה נוחה ללקוחות ולמטופלים</li>
+      <li>חניה פרטית</li>
+      <li>מתאים לקליניקות רפואיות, מכוני קוסמטיקה, רופאים, פסיכולוגים ואנשי מקצוע נוספים</li>
+      <li>פרויקט Port Beach בכיכר העצמאות. במרחק הליכה מהים והטיילת, ליד מסעדות ובתי קפה</li>
+    </ul>
+  </section>
+
+  <section class="cta-block" aria-label="Оставить контакты">
+    <h2 style="margin:0">Заинтересовало помещение?</h2>
+    <p>Оставьте контакты, и мы свяжемся с вами, чтобы показать офис и ответить на вопросы.</p>
+    <a class="cta" href="https://forms.gle/PFHoHr6V8LjAxngH6" target="_blank" rel="noopener">Оставить контакты</a>
+    <p dir="rtl" lang="he" style="margin-top:6px">מעוניינים? השאירו פרטים ונחזור אליכם לתיאום סיור במשרד</p>
+    <a class="cta" href="https://forms.gle/PFHoHr6V8LjAxngH6" target="_blank" rel="noopener" lang="he">השאירו פרטים</a>
+  </section>
+</main>
